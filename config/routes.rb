@@ -9,4 +9,8 @@ Rails.application.routes.draw do
   resources :users
 
   root "home#index"
+
+  namespace :admin do
+    root "dashboard#index"
+  end
 end
