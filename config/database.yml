@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: bitbillers_development
+  username: bitbillers
+  password: password
+test:
+  <<: *default
+  database: bitbillers_test
+  username: bitbillers
+  password: password
+production:
+  <<: *default
+  database: bitbillers_production
+  username: bitbillers
+  password: <%= ENV['BITBILLERS_DATABASE_PASSWORD'] %>
