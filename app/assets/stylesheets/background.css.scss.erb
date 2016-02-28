@@ -1,0 +1,76 @@
+@font-face {
+font-family: 'nexa';
+src: url('<%= asset_path("fonts/nevis.ttf") %>'); /* IE9 Compat Modes */
+src: url('<%= asset_path("fonts/nexabold.otf") %>'),
+url('<%= asset_path("fonts/nexalight.otf") %>')
+}
+
+@font-face {
+font-family: 'nexa-light';
+src: url('<%= asset_path("fonts/nevis.ttf") %>'); /* IE9 Compat Modes */
+src: url('<%= asset_path("fonts/nexalight.otf") %>')
+}
+
+.lines{
+	background: url('<%= asset_path("bg.png") %>') repeat;
+	position: absolute;
+	width: 100%;
+	height: 594px;
+	z-inde: 1;
+}
+
+.top-header{
+background: -moz-linear-gradient(45deg, rgba(255,255,255,0) 0%, rgba(151,156,163,0.92) 92%, rgba(151,156,163,1) 70%);
+background: -webkit-linear-gradient(45deg, rgba(255,255,255,0) 0%, rgba(151,156,163,0.92) 92%, rgba(151,156,163,1) 100%);
+background: -o-linear-gradient(45deg, rgba(255,255,255,0) 0%, rgba(151,156,163,0.92) 92%, rgba(151,156,163,1) 70%);
+background: -ms-linear-gradient(45deg, rgba(255,255,255,0) 0%, rgba(151,156,163,0.92) 92%, rgba(151,156,163,1) 70%);
+background: linear-gradient(90deg, rgba(247,245,245,0) 0%, rgba(247,245,245,0) 80%, rgba(247,245,245,0) 70%);
+}
+
+
+
+.mobile-mg{
+background: url('<%= asset_path("iphone.png") %>') no-repeat;
+background-size: 170%;
+background-position: -75px;
+}
+
+.title-1:before{
+background: url('<%= asset_path("title-left.png") %>') no-repeat;
+}
+
+.title-1:after{
+background: url('<%= asset_path("title-right.png") %>') no-repeat;
+}
+
+.arrow-up {
+background: url('<%= asset_path("arrow-up.png") %>') no-repeat;
+}
+
+.liberty{
+background: url('<%= asset_path("liberty.png") %>') no-repeat;
+}
+
+.greenwich{
+background: url(' <%= asset_path("greenwich.png") %>') no-repeat;
+}
+
+.pipe-top{
+background: url(' <%= asset_path("pipe-top.png") %>') no-repeat;
+}
+
+.pipe-top-vertical{
+background: url('<%= asset_path("pipe-top-vertical.png") %>') no-repeat;
+}
+
+.pipe-bottom{
+background: url('<%= asset_path("pipe-bottom.png") %>') no-repeat;
+}
+
+.pipe-bottom-vertical{
+background: url('<%= asset_path("pipe-bottom-vertical.png") %>') no-repeat;
+}
+
+.cars{
+background: url('<%= asset_path("car.png") %>') no-repeat;
+}
