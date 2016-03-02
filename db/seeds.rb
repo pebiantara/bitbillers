@@ -15,3 +15,11 @@ if Role.count.zero?
 end
 
 User.find_by_email('admin@bitbillers.com').role_ids = Role.first.id
+
+if BitCoinPrice.count.zero?
+  BitCoinPrice.create(price: 319.96)
+end
+
+if Configuration.count.zero?
+  Configuration.create!
+end

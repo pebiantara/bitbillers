@@ -6,10 +6,19 @@ class User < ActiveRecord::Base
 
   has_and_belongs_to_many :roles, join_table: 'users_roles'
 
+  has_many :trades
+  has_many :login_histories
+  has_one  :address
+
   scope :members, -> {joins(:roles).where(:"roles.name" => 'member')}
   scope :admin, -> {joins(:roles).where(:"roles.name" => 'admin')}
 
   after_create :set_member
+ 
+  validates_presence_of :first_name, :last_name, :phone_number, :username, :address, :city, :state, :zip_code, :country
+  validates_uniqueness_of :phone_number, :username
+
+  accepts_nested_attributes_for :address
 
   def is_admin?
     roles.map(&:name).include?('admin')

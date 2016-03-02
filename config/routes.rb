@@ -11,6 +11,6 @@ Rails.application.routes.draw do
   root "home#index"
 
   namespace :admin do
-    root "dashboard#index"
+    root "trades#new"    
   end
 end
