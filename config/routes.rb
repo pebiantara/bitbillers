@@ -14,5 +14,9 @@ Rails.application.routes.draw do
     root "trades#new"
     get 'settings' => 'configurations#edit', as: :settings
     patch 'update_setting' => 'configurations#update', as: :update_setting
+
+    resources :trades
+    resources :dashboards, only: [:index]
+    resources :users
   end
 end

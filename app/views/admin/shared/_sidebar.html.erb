@@ -1,25 +1,25 @@
 <ul class="nav nav-sidebar">
   <li class="<%= 'active' if params[:controller].eql?('admin/trades') && params[:action].eql?('new') %>">
-    <%= link_to "#" do %>
+    <%= link_to admin_root_path do %>
       <span>Create new trade</span>
     <% end %>
 	</li>
-	<li class="<%= 'active' if params[:controller] == 'admin/dashboard'%>">
-		<%= link_to "#" do %>
+	<li class="<%= 'active' if params[:controller] == 'admin/dashboards'%>">
+		<%= link_to admin_dashboards_path do %>
   		<span>Dashboard</span>
 		<% end %>
 	</li>
-	<li class="<%= 'active' if params[:controller] == 'admin/transactions'%>">
-		<%= link_to "#" do %>
+	<li class="<%= 'active' if params[:controller] == 'admin/trades' && !params[:action].eql?('new') %>">
+		<%= link_to admin_trades_path do %>
 		<span>Trades List</span>
 		<% end %>
 	</li>
 	<li class="<%= 'active' if params[:controller] == 'admin/users'%>">
-		<%= link_to "#" do %>
+		<%= link_to admin_users_path do %>
 		<span>Users List</span>
 		<% end %>
 	</li>
-	<li class="<%= 'active' if params[:controller] == 'admin/settings'%>">
+	<li class="<%= 'active' if params[:controller] == 'admin/configurations'%>">
 		<%= link_to admin_settings_path, method: :get do %>
 		<span>Manage System</span>
 		<% end %>
