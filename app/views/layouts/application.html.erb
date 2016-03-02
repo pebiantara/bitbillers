@@ -7,11 +7,13 @@
 	<%= csrf_meta_tags %>
 </head>
 <body>
-	<%- if user_signed_in? %>
-	<%= link_to "Logout", signout_user_path %>
-	<% end %>
-	<%= yield %>
-
+	<%= render "layouts/header" %>
+  <div class="container">
+	  <%= yield %>
+  </div>
+	<%= render "layouts/footer" %>
 	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<%= yield :modals %>
+	<%= yield :javascripts %>
 </body>
 </html>

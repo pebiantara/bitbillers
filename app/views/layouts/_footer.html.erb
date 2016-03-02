@@ -1,0 +1,28 @@
+<footer id="footer">
+  <section class="lower-footer text-center">
+    <div class="container">
+      <div class="col-md-12">
+        <p>&copy; 2016 - BitBillers.com</p>
+      </div>
+    </div>
+  </section>
+</footer>
+<%- content_for :javascripts do %>
+<script type="text/javascript">
+jQuery(document).on('ready page:load', function() {
+  $('.dropdown-toggle').dropdown();
+  reset_footer_position();
+});
+
+$(window).resize(function() {
+  reset_footer_position();
+});
+
+function reset_footer_position() {
+  if ($('body').height() < $(window).height()) {
+    var top = $(window).height() - $("#footer").height()-4;
+    $("#footer").offset({top: top, left: 0})
+  }
+}
+</script>
+<% end %>

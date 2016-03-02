@@ -7,83 +7,19 @@
 	<%= csrf_meta_tags %>
 </head>
 <body>
-	<nav class="navbar navbar-inverse admin navbar-fixed-top">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="/">
-					<img alt="Bitcoins" src="/assets/logo.png">
-				</a>
+	<%= render "/layouts/admin/header" %>
+	<div id="admin" class="container-fluid">
+		<div class="row">
+			<div class="col-sm-3 col-md-2 sidebar">
+				<%= render "/admin/shared/sidebar" %>
 			</div>
-			<div id="navbar" class="navbar-collapse collapse">
-				<ul class="nav navbar-nav navbar-right">
-        <!--<li><a href="#">Dashboard</a></li>
-        <li><a href="#">Settings</a></li>
-        <li><a href="#">Profile</a></li>
-        <li><a href="#">Help</a></li>-->
-        <li><%= link_to 'Log out', destroy_user_session_path, :method=>'delete' %></li>
-      </ul>
-    </div>
-  </div>
-</nav>	
-<div id="admin" class="container-fluid">
-	<div class="row">
-		<div class="col-sm-3 col-md-2 sidebar">
-			<ul class="nav nav-sidebar">
-				<li class="<%= 'active' if params[:controller] == 'admin/dashboard'%>">
-					<%= link_to "#" do %>
-					<span>Dashboard</span>
-					<% end %>
-				</li>
-
-				<li class="<%= 'active' if params[:controller] == 'admin/transactions'%>">
-					<%= link_to "#" do %>
-					<span>Trades List</span>
-					<% end %>
-				</li>
-
-				<li class="<%= 'active' if params[:controller] == 'admin/users'%>">
-					<%= link_to "#" do %>
-					<span>Users List</span>
-					<% end %>
-				</li>
-				<li class="<%= 'active' if params[:controller] == 'admin/receipts'%>">
-					<%= link_to "#" do %>
-					<span>Receipts</span>
-					<% end %>
-				</li>
-				<li class="<%= 'active' if params[:controller] == 'admin/promotions'%>">
-					<%= link_to "#" do %>
-					<span>Promotions</span>
-					<% end %>
-				</li>
-				<li class="<%= 'active' if params[:controller] == 'admin/payment_methods'%>">
-					<%= link_to "#", method: :get do %>
-					<span>Payment Methods</span>
-					<% end %>
-				</li>
-
-				<% if current_user.is_admin? %>
-				<li class="<%= 'active' if params[:controller] == 'admin/settings'%>">
-					<%= link_to "#", method: :get do %>
-					<span>Manage System</span>
-					<% end %>
-				</li>
-				<% end %>
-
-			</ul>
-		</div>
-		<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-			<%= yield %>
+			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+				<%= yield %>
+			</div>
 		</div>
 	</div>
-</div>
-<%= yield %>
-<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<%= yield :modals %>
+	<%= yield :javascripts %>
 </body>
 </html>
