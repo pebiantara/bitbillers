@@ -1,6 +1,6 @@
 class Configurations < ActiveRecord::Migration
   def change
-  	create_table :configurations do |t|
+  	create_table :app_configurations do |t|
       t.float :fee_percent, default: 2
       t.float :maximum_daily_deposit, default: 1000
       t.float :maximum_deposit, default: 1000

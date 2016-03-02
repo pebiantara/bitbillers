@@ -27,18 +27,18 @@ ActiveRecord::Schema.define(version: 20160302163643) do
     t.datetime "updated_at"
   end
 
-  create_table "bit_coin_prices", force: :cascade do |t|
-    t.decimal  "price",      precision: 8, scale: 2, default: 0.0
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "configurations", force: :cascade do |t|
+  create_table "app_configurations", force: :cascade do |t|
     t.float    "fee_percent",           default: 2.0
     t.float    "maximum_daily_deposit", default: 1000.0
     t.float    "maximum_deposit",       default: 1000.0
     t.float    "minimum_deposit",       default: 100.0
     t.float    "id_requirement",        default: 1000.0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "bit_coin_prices", force: :cascade do |t|
+    t.decimal  "price",      precision: 8, scale: 2, default: 0.0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

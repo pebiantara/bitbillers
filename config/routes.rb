@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   root "home#index"
 
   namespace :admin do
-    root "trades#new"    
+    root "trades#new"
+    get 'settings' => 'configurations#edit', as: :settings
+    patch 'update_setting' => 'configurations#update', as: :update_setting
   end
 end

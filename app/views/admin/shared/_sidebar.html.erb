@@ -20,7 +20,7 @@
 		<% end %>
 	</li>
 	<li class="<%= 'active' if params[:controller] == 'admin/settings'%>">
-		<%= link_to "#", method: :get do %>
+		<%= link_to admin_settings_path, method: :get do %>
 		<span>Manage System</span>
 		<% end %>
 	</li>

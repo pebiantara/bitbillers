@@ -20,6 +20,6 @@ if BitCoinPrice.count.zero?
   BitCoinPrice.create(price: 319.96)
 end
 
-if Configuration.count.zero?
-  Configuration.create!
+if AppConfiguration.count.zero?
+  AppConfiguration.create!
 end
