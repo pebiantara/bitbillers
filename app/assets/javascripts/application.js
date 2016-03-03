@@ -20,4 +20,5 @@
 //= require inputmask.numeric.extensions
 //= require inputmask.date.extensions
 //= require jquery.inputmask
+//= require clipboard.min
 //= require_tree .

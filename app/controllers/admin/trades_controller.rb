@@ -1,7 +1,11 @@
 class Admin::TradesController < Admin::ApplicationController
 
   def index
-
+    @trades = Trade.order(created_at: :desc)
+    if params[:status].present?
+      @trades = @trades.where(status: params[:status])
+    end
+    @trades = @trades.page(params[:page]).per(25)
   end
 
   def new
@@ -17,6 +21,15 @@ class Admin::TradesController < Admin::ApplicationController
     else
       render :new
     end
+  end
+
+  def release
+    @trade = Trade.find_by_id(params[:id])
+  end
+
+  def released
+    @trade = Trade.find_by_id(params[:id])
+    @updated = @trade.update_attributes(status: 'btc_sent', update_status: true)
   end
 
   private

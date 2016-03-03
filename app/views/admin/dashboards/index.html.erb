@@ -1,0 +1,8 @@
+<h1>Trades</h1>
+<hr/>
+<ul class="nav nav-tabs">
+	<li role="presentation" class="active">
+		<a href="/admin/dashboards">Trade to check (<%= @trades.total_count %>)</a>
+	</li>
+</ul>
+<%= render partial: "admin/trades/trades", locals: {release: true} %>

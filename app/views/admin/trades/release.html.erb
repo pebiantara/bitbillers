@@ -1,0 +1,30 @@
+<h2 class="text-center">Release BTC</h2>
+<h3 class="text-center">Please process it manually on local wallet system</h3>
+<div class="text-center">
+	<div class="col-md-12 release-box">
+		<strong>Send (BTC amount)</strong>: 
+		<div class="input-group">
+			<input id="btc-amount" type="text" value="<%= @trade.usd_amount %>" class="form-control">
+			<span class="input-group-addon">
+				<a id="cp-btc-amount" data-clipboard-demo="" data-clipboard-target="#btc-amount">
+					<i class="fa fa-copy"></i>
+				</a>
+			</span>
+		</div>
+		<br/>
+		<br/>
+		<strong>To wallet address</strong>: 
+		<div class="input-group">
+			<input id="wallet" type="text" value="<%= @trade.wallet %>" class="form-control">
+			<span class="input-group-addon">
+				<a id="cp-wallet" data-clipboard-demo="" data-clipboard-target="#wallet">
+					<i class="fa fa-copy"></i>
+				</a>
+			</span>
+		</div>
+	</div>
+	<%= form_for @trade, url: released_admin_trade_path(@trade), remote: true do |f| %>
+	<%= f.button "Cancel", class: 'btn btn-danger', type: 'reset', onclick: "$('#window-modal-small').modal('hide');" %>
+	<%= f.submit "Yes, confirm", class: 'btn btn-primary', data: {disable_with: 'releasing...'} %>
+	<% end %>
+</div>

@@ -1,0 +1,24 @@
+<div class="table-responsive">
+	<table class="table">
+		<thead>
+			<tr>
+				<td>ID</td>
+				<td>Date</td>
+				<td>Phone</td>
+				<td>Username</td>
+				<td>Amount USD</td>
+				<td>Amount BTC</td>
+				<td>Location To Pay</td>
+				<td>Receipt</td>
+				<td>Notes</td>
+				<td>Status</td>
+			  <%- if release %>
+  				<td></td>
+			  <% end %>
+			</tr>
+		</thead>
+		<tbody>
+			<%= render partial: "admin/trades/trade_list", locals: {release: release} %>
+		</tbody>
+	</table>
+</div>

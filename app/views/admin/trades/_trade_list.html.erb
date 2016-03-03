@@ -1,0 +1,26 @@
+<%- @trades.each do |trade| %>
+<tr id="trade-<%= trade.id %>">
+	<td><%= trade.id %></td>
+	<td><%= trade.created_at %></td>
+	<td><%= trade.phone_number %></td>
+	<td><%= trade.username %></td>
+	<td><%= trade.usd_amount %></td>
+	<td><%= trade.btc_amount %></td>
+	<td><%= trade.location_to_pay.present? ? trade.location_to_pay : 'Store#1' %></td>
+  <td>
+    <%= link_to "Check", "javascript:void(0)" %>
+  </td>
+  <td>
+    <%= link_to "Check", "javascript:void(0)" %>
+  </td>
+	<td><span class="<%= get_trade_status(trade.status) %>"><%= trade.status.humanize %></span></td>
+	<%- if release %>
+    <td>
+      <%= link_to "release", "javascript:void(0)", onclick: "openModalSmall('#{release_admin_trade_path(trade, popup: true)}')" %>
+    </td>
+	<% end %>
+</tr>
+<% end %>
+<tr>
+	<td colspan="<%= release ? 11 : 10 %>"><%= paginate @trades %></td>
+</tr>

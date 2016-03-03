@@ -1,0 +1,13 @@
+<h1>Trades</h1>
+<hr/>
+<ul class="nav nav-tabs">
+	<li role="presentation" class="<%= 'active' if !params[:status].present? %>">
+		<a href="/admin/trades">All (<%= Trade.count %>)</a>
+	</li>
+	<%- Trade.states.each do |key, val| %>
+	<li role="" class="<%= 'active' if params[:status].eql?(key.to_s) %>">
+		<a href="/admin/trades?status=<%= key.to_s %>"><%= key.to_s.humanize %> (<%= eval("Trade.#{key.to_s}.count") %>)</a>
+	</li>
+	<% end %>
+</ul>
+<%= render partial: "trades", locals: {release: false} %>

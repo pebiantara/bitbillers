@@ -1,0 +1,4 @@
+<%- if @updated %>
+  $("#trade-<%= @trade.id %>").remove();
+  $("#window-modal-small").modal('hide');
+<% end %>

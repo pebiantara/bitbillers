@@ -2,7 +2,7 @@ $(document).on('ready page:load', function(){
   $('#user_phone_number').inputmask({mask: '(999)999-9999'});
 
   $('#window-modal, #window-modal-small').on('show.bs.modal', function(){
-
+    copyClipboard();
   });
 
   $('#window-modal, #window-modal-small').on('hidden.bs.modal', function(){
@@ -11,6 +11,12 @@ $(document).on('ready page:load', function(){
 
   setupTrading();
 });
+
+copyClipboard = function(){
+  var btc_cp = new Clipboard('#cp-btc-amount');
+
+  var wallet_cp = new Clipboard('#cp-wallet');
+}
 
 setupTrading = function(){
   price = $("#price").data("price");

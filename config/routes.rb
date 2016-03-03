@@ -15,7 +15,12 @@ Rails.application.routes.draw do
     get 'settings' => 'configurations#edit', as: :settings
     patch 'update_setting' => 'configurations#update', as: :update_setting
 
-    resources :trades
+    resources :trades do
+      member do
+        get :release
+        patch :released
+      end
+    end
     resources :dashboards, only: [:index]
     resources :users do
       member do
