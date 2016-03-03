@@ -2,11 +2,11 @@ class Admin::ConfigurationsController < Admin::ApplicationController
 
   def edit
     AppConfiguration.create! if AppConfiguration.count.zero?
-    @setting = AppConfiguration.last 
+    @setting = AppConfiguration.current_config 
   end
 
   def update
-    @setting = AppConfiguration.last
+    @setting = AppConfiguration.current_config
     if @setting.update_attributes(setting_params)
     	redirect_to admin_settings_path, notice: 'Setting updated!'
     else
