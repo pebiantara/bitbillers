@@ -1,0 +1,20 @@
+<h1>Trade List for <%= @user.email %></h1>
+<div class="table-responsive">
+	<table class="table">
+		<thead>
+			<tr>
+				<td>ID</td>
+				<td>Date</td>
+				<td>Phone</td>
+				<td>Wallet</td>
+				<td>Amount USD</td>
+				<td>Amount BTC</td>
+				<td>Location To Pay</td>
+				<td>Status</td>
+			</tr>
+		</thead>
+		<tbody>
+			<%= render "trade_list" %>
+		</tbody>
+	</table>
+</div>

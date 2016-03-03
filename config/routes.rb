@@ -21,6 +21,8 @@ Rails.application.routes.draw do
       member do
         get :status
         patch :change_status
+        get :trades
+        get :login_histories
       end
     end
   end

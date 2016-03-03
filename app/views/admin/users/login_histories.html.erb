@@ -1,0 +1,16 @@
+<h1>Login Histories for <%= @user.email %></h1>
+<div class="table-responsive">
+	<table class="table" id="histories">
+		<thead>
+			<tr>
+				<td>Date</td>
+				<td>IP Address</td>
+				<td>IP Location</td>
+				<td>User Agent</td>
+			</tr>
+		</thead>
+		<tbody>
+			<%= render "login_list" %>
+		</tbody>
+	</table>
+</div>

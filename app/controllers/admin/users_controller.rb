@@ -49,6 +49,24 @@ class Admin::UsersController < Admin::ApplicationController
     end
   end
 
+  def trades
+    @user = User.find_by_id(params[:id])
+    @trades = @user.trades.order(created_at: :desc).page(params[:page]).per(20)
+    respond_to do |f|
+      f.html {}
+      f.js {}
+    end
+  end
+
+  def login_histories
+    @user = User.find_by_id(params[:id])
+    @login_histories = @user.login_histories.order(created_at: :desc).page(params[:page]).per(20)
+    respond_to do |f|
+      f.html {}
+      f.js {}
+    end
+  end
+
   def status
     @user = User.find_by_id(params[:id])
   end

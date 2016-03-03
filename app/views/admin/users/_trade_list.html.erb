@@ -1,0 +1,15 @@
+<%- @trades.each do |trade| %>
+<tr>
+	<td><%= trade.id %></td>
+	<td><%= trade.created_at %></td>
+	<td><%= trade.phone_number %></td>
+	<td><%= trade.wallet %></td>
+	<td><%= trade.usd_amount %></td>
+	<td><%= trade.btc_amount %></td>
+	<td><%= trade.location_to_pay %></td>
+	<td><%= trade.status %></td>
+</tr>
+<% end %>
+<tr>
+	<td colspan="8"><%= paginate @trades, remote: true %></td>
+</tr>

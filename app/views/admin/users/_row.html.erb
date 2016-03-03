@@ -26,10 +26,10 @@
 		$ <%= user.total_purchases %>
 	</td>
 	<td>
-		<%= link_to "Check", "#" %>
+		<%= link_to "Check", "javascript:void(0)", onclick: "openModal('#{trades_admin_user_path(user, popup: true)}')" %>
 	</td>
 	<td>
-		<%= link_to "Check", "#" %>
+		<%= link_to "Check", "javascript:void(0)", onclick: "openModal('#{login_histories_admin_user_path(user, popup: true)}')" %>
 	</td>
 	<td><%= user.first_name %></td>
 	<td><%= user.last_name %></td>

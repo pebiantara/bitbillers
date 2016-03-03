@@ -1,0 +1,11 @@
+<%- @login_histories.each do |login| %>
+<tr>
+	<td><%= login.created_at %></td>
+	<td><%= login.ip_address %></td>
+	<td><%= login.complete_name %></td>
+	<td><%= login.agent_name %></td>
+</tr>
+<% end %>
+<tr>
+	<td colspan="4"><%= paginate @login_histories, remote: true %></td>
+</tr>
