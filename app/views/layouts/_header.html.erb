@@ -34,7 +34,8 @@
               <% if current_user.is_admin? %>
               <li><a href="/admin">Admin</a></li>
               <% else %>
-              <li><a href="<%= user_transaction_history_path %>">Withdraw History</a></li>
+              <li><a href="<%= edit_user_registration_path %>">Account</a></li>
+              <li><a href="#">Withdraw History</a></li>
               <% end %>
             </ul>
             <% else %>

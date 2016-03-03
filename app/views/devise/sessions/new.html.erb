@@ -4,7 +4,6 @@
       <div class="col-sm-offset-4 col-sm-4">
         <%= form_for(resource, :as => resource_name, :url => signin_user_create_path, :html => { :role => 'form'}) do |f| %>
         <h3 class="text-center">Sign in</h3>
-        <%= render 'shared/messages' %>
         <div class="form-group">
           <%= f.label :email %>
           <%= f.email_field :email, :autofocus => true, class: 'form-control' %>
@@ -24,6 +23,18 @@
         </div>
         <% end -%>
         <% end %>
+        <div>
+          <div class="col-sm-6 no-padding">
+            <%- if devise_mapping.registerable? %>
+            <%= link_to 'Sign up', new_registration_path(resource_name), class: 'right'  %>
+            <% end -%>
+          </div>
+          <div class="col-sm-6 no-padding">
+            <%- if devise_mapping.recoverable? %>
+            <%= link_to "Forgot password?", new_password_path(resource_name), class: 'pull-right' %>
+            <% end -%>
+          </div>
+        </div>
       </div>
     </div>
   </div>

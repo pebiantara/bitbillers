@@ -13,4 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
+//= require inputmask
+//= require inputmask.extensions
+//= require inputmask.phone.extensions
+//= require inputmask.regex.extensions
+//= require inputmask.numeric.extensions
+//= require inputmask.date.extensions
+//= require jquery.inputmask
 //= require_tree .
