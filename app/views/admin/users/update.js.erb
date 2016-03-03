@@ -1,0 +1,3 @@
+html = '<%= escape_javascript(render "form") %>';
+$("#window-modal .modal-content").html(html);
+$("#user-<%= @user.id %>").html("<%= escape_javascript(render partial: 'row', locals: {user: @user}) %>");

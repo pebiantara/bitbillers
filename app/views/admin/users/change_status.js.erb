@@ -1,0 +1,2 @@
+$("#user-<%= @user.id %>-status").html("<%= escape_javascript(render partial: 'link_status', locals: {user: @user}) %>");
+$("#window-modal-small").modal('hide');

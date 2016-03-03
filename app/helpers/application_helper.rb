@@ -15,4 +15,14 @@ module ApplicationHelper
 			notice || alert
 		end
 	end
+
+	def user_get_status(user)
+    if user.status.eql?('unconfirmed')
+      "label label-warning"
+    elsif user.status.eql?('locked')
+      "label label-danger"
+    else
+      "label label-success"         
+    end	
+	end
 end

@@ -637,3 +637,16 @@ h6,
   border-color: #586f0b;  
 }
 .no-padding{padding: 0px !important;}
+
+.modal-body iframe{
+  border: none;
+  background: #fff;
+  width: 100%;
+  min-height: 500px;
+  overflow: hidden;
+}
+
+.popup-content .popup-body{
+  background: #fff;
+  padding: 20px;
+}

@@ -1,0 +1,47 @@
+	<td>
+		<%= user.id %>
+	</td>
+	<td>
+		<%= user.created_at %>
+	</td>
+	<td>
+		<%= user.last_sign_in.ip_address rescue '-' %>
+	</td>
+	<td>
+		<%= user.last_sign_in.complete_name rescue '-' %>
+	</td>
+	<td>
+		<%= user.email %>
+	</td>
+	<td>
+		<%= user.phone_number %>
+	</td>
+	<td>
+		<%= user.sms_verified ? 'Yes' : 'No' %>
+	</td>
+	<td>
+		<%= user.id_verified ? 'Yes' : 'No' %>
+	</td>
+	<td>
+		$ <%= user.total_purchases %>
+	</td>
+	<td>
+		<%= link_to "Check", "#" %>
+	</td>
+	<td>
+		<%= link_to "Check", "#" %>
+	</td>
+	<td><%= user.first_name %></td>
+	<td><%= user.last_name %></td>
+	<td><%= user.address_complete %></td>
+	<td id="user-<%= user.id %>-status">
+    <%= render partial: "link_status", locals: {user: user} %>
+	</td>
+	<td>
+		<%= link_to "javascript:void(0)", onclick: "openModal('#{edit_admin_user_path(user, popup: true)}')" do %>
+		<i class="fa fa-pencil"></i>
+		<% end %>
+		<%= link_to admin_user_path(user), data: {confirm: 'are you sure?'}, method: :delete do %>
+		<i class="fa fa-trash"></i>
+		<% end %>
+	</td>

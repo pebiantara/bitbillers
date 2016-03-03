@@ -1,0 +1,7 @@
+<%- if @user.errors.empty? %>
+  $("#window-modal").modal('hide');
+  $("#user-table tbody").prepend("<tr id='user-<%= @user.id %>'><%= escape_javascript(render partial: 'row', locals: {user: @user}) %></tr>");
+<% else %>
+	html = '<%= escape_javascript(render "form") %>';
+	$("#window-modal .modal-content").html(html);
+<% end %>

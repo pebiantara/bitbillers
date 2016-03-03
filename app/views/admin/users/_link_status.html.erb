@@ -1,0 +1,3 @@
+		<%= link_to "javascript:void(0)", onclick: "openModalSmall('#{status_admin_user_path(user.id, popup: true)}')" do %>
+  		<span class="<%= user_get_status(user) %>"><%= user.status %></span>
+		<% end %>

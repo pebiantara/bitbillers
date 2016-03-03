@@ -17,6 +17,11 @@ Rails.application.routes.draw do
 
     resources :trades
     resources :dashboards, only: [:index]
-    resources :users
+    resources :users do
+      member do
+        get :status
+        patch :change_status
+      end
+    end
   end
 end

@@ -32,10 +32,46 @@ class User < ActiveRecord::Base
     self.role_ids = Role.find_by_name('member').id
   end
 
+  def self.confirmed_count
+    members.where(status: 'confirmed').count
+  end
+
+  def self.unconfirmed_count
+    members.where(status: 'unconfirmed').count
+  end
+
+  def self.locked_count
+    members.where(status: 'locked').count
+  end
+
+  def self.members_count
+    members.count
+  end
+
+  def total_purchases
+    trades.sum(:usd_amount).to_f.scale_2
+  end
+
+  def last_sign_in
+    login_histories.last
+  end
+
+  def address_complete
+    [address.address, address.city, address.state, address.zip_code, address.country].join(", ") rescue "-"
+  end
+
   def generate_sms_code
     o = [('a'..'z'), ('A'..'Z')].map { |i| i.to_a }.flatten
     string = (0...4).map { o[rand(o.length)] }.join
     self.sms_code = string
     save
+  end
+
+  def self.status_arr
+    [
+      ['Confirmed', 'confirmed'],
+      ['UnConfirmed', 'unconfirmed'],
+      ['Locked', 'locked']
+    ]
   end
 end
