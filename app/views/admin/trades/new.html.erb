@@ -1,0 +1,54 @@
+<h1>New Trade</h1>
+<h2>Price: <span id="price" data-price="<%= @bitcoin_price %>">$<%= @bitcoin_price %>/1BTC</span></h2>
+<div class="col-md-8 no-padding">
+	<%= form_for @trade, url: admin_trades_path do |f| %>
+	<% if @trade.errors.any? %>
+	<div class="alert alert-danger">
+		<strong>There are <%= pluralize(@trade.errors.count, " errors") %></strong>
+		<ul>
+			<% @trade.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+			<% end %>
+		</ul>
+	</div>
+	<% end %>
+	<div class="col-md-3">
+		<div class="form-group">
+			<%= f.label :usd_amount %>
+			<%= f.number_field :usd_amount, class: 'form-control', min: 1 %>
+		</div>
+	</div>
+	<div class="col-md-2">
+
+	</div>
+	<div class="col-md-3">
+		<div class="form-group">
+			<%= f.label :btc_amount %>
+			<%= f.number_field :btc_amount, class: 'form-control', min: 1 %>
+		</div>
+	</div>
+	<div class="col-md-8">
+		<div class="form-group">
+			<%= f.label :phone_number %>
+			<%= f.text_field :phone_number, class: 'form-control' %>
+		</div>
+		<div class="form-group">
+			<%= f.label :wallet %>
+			<%= f.text_field :wallet, class: 'form-control' %>
+		</div>
+		<div class="form-group">
+			<%= f.label :user_id, "User" %>
+			<%= f.select :user_id, options_for_select(User.members.map{|x| [x.email, x.id]}, selected: f.object.user_id),  {}, class: 'form-control' %>
+		</div>
+		<div class="form-group">
+			<%= f.label :username %>
+			<%= f.text_field :username, class: 'form-control' %>
+		</div>
+		<div class="form-group">
+			<%= f.label :email %>
+			<%= f.text_field :email, class: 'form-control' %>
+		</div>
+		<%= f.submit "Create trade", class: 'btn btn-primary' %>
+	</div>
+	<% end %>
+</div>
