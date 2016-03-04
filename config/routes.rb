@@ -36,5 +36,8 @@ Rails.application.routes.draw do
     root "home#index"
     get "buy" => "home#buy", as: :buy
     get "bitbil" => "home#bitbil", as: :bitbil
+    get "store" => "home#store", as: :store
+    get "charge" => "home#charge", as: :charge
+    get "verify" => "home#verify", as: :verify
   end
 end

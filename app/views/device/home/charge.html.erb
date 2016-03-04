@@ -1,0 +1,17 @@
+<div class="container">
+	<div class="col-md-3">
+		<%= image_tag('logo.png', class: 'img-resposive left-logo') %>
+	</div>
+	<div class="clearfix"></div>
+	<div class="box-device">
+	  <h1 class="text-center">Charge and secure the payment:</h1>
+	  <div class="info-name text-center">$75</div>
+	  <div class="clearfix"></div>
+	  <div class="col-md-4 col-md-offset-2 box-button">
+      <%= button_tag "No, Cancel", class: "btn btn-default btn-cancel radius" %>
+	  </div>
+	  <div class="col-md-4 box-button">
+      <%= button_tag "Yes, It secured", class: "btn btn-primary radius", onclick: "window.location='/device/charge'" %>
+	  </div>
+	</div>
+</div>

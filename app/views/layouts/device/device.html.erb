@@ -10,5 +10,22 @@
 	<%= yield %>
 	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 	<%= yield :javascripts %>
+	<script>
+	$(document).on('ready page:load', function(){
+    $(".btn-number").click(function(){
+      val = $(this).text();
+      if(val != 'DELETE' && val != 'ENTER'){
+        text = $("#screen").val() + val;
+        $("#screen").val(text);
+      }else if(val == 'DELETE'){
+        text = $("#screen").val();
+        if(text.length > 0){
+        	text = text.substring(0, text.length - 1);
+        	$("#screen").val(text);
+        }
+      }
+    });		
+	})
+	</script>
 </body>
 </html>

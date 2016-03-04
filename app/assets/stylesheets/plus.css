@@ -712,3 +712,11 @@ h6,
 
 .btn-number:hover{text-decoration: none;}
 .insert-cellphone{margin-top: 150px;}
+.info-name{
+  font-size: 40px;
+  color: #c3c4c9;
+}
+.box-button{margin-top: 50px;}
+.box-button button{width: 100%; padding: 10px 20px; font-size: 25px;}
+
+.btn-cancel{background: #c3c4c9 !important;}
