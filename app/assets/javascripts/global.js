@@ -7,6 +7,7 @@ $(document).on('ready page:load', function(){
 
   $('#window-modal, #window-modal-small').on('hidden.bs.modal', function(){
   	$(this).removeData('bs.modal');
+    $(this).find(".modal-content").html('');
   });
 
   setupTrading();
