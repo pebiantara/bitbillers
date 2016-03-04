@@ -31,4 +31,10 @@ Rails.application.routes.draw do
       end
     end
   end
+
+  namespace :device do
+    root "home#index"
+    get "buy" => "home#buy", as: :buy
+    get "bitbil" => "home#bitbil", as: :bitbil
+  end
 end

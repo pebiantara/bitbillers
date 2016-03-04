@@ -7,7 +7,13 @@ class ApplicationController < ActionController::Base
   helper_method :set_login_history
 
   def selected_layout
-    params[:controller].include?('admin') ? 'admin' : 'application'
+    if params[:controller].include?('admin') 
+      'admin'
+    elsif params[:controller].include?('device')
+      'device/device'
+    else
+      'application'
+    end
   end
 
   def after_sign_in_path_for(resource_or_scope)

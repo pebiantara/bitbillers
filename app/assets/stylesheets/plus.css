@@ -655,3 +655,60 @@ h6,
   margin-top:20px;
   font-size:30px;
 }
+
+.box-device{
+  padding-top: 100px;
+}
+.box-device img.logo{
+  width: 400px;
+  margin-top: 50px;
+}
+
+.box-device h1{
+  font-size: 55px;
+  font-weight: bold;
+}
+
+.buy-btn{margin-top: 30px;}
+
+.box-device .btn-lg{
+  width: 300px;
+}
+
+.radius{
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+}
+.left-logo{
+  margin-top: 10px;
+  width: 200px;
+}
+
+.box-keypad input[type='text']{
+  background: #97be13;
+  color: #fff;
+  font-size: 25px;
+  padding: 10px 10px;
+  height: 60px;
+}
+
+.btn-number{
+  display: block;
+  background: #c3c4c9;
+  color: #fff;
+  padding: 25px 5px 10px 5px;
+  border-radius: 50%;
+  width: 85px;
+  height: 85px;
+  text-align: center;
+  margin-top: 10px;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.enter{
+  background: #97be13;
+}
+
+.btn-number:hover{text-decoration: none;}
+.insert-cellphone{margin-top: 150px;}
