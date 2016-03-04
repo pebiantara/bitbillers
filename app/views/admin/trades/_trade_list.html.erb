@@ -10,9 +10,6 @@
   <td>
     <%= link_to "Check", "javascript:void(0)" %>
   </td>
-  <td>
-    <%= link_to "Check", "javascript:void(0)" %>
-  </td>
 	<td id="trade-<%= trade.id %>-status">
 	  <%= render partial: 'admin/trades/link_status', locals: {trade: trade} %>
 	</td>
@@ -24,5 +21,5 @@
 </tr>
 <% end %>
 <tr>
-	<td colspan="<%= release ? 11 : 10 %>"><%= paginate @trades %></td>
+	<td colspan="<%= release ? 10 : 9 %>"><%= paginate @trades %></td>
 </tr>

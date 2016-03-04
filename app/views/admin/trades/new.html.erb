@@ -37,10 +37,6 @@
 			<%= f.text_field :wallet, class: 'form-control' %>
 		</div>
 		<div class="form-group">
-			<%= f.label :user_id, "User" %>
-			<%= f.select :user_id, options_for_select(User.members.map{|x| [x.email, x.id]}, selected: f.object.user_id),  {}, class: 'form-control' %>
-		</div>
-		<div class="form-group">
 			<%= f.label :username %>
 			<%= f.text_field :username, class: 'form-control' %>
 		</div>

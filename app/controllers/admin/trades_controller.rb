@@ -15,7 +15,13 @@ class Admin::TradesController < Admin::ApplicationController
 
   def create
     @bitcoin_price = BitCoinPrice.new_price
-    @trade = Trade.new(trade_params)
+    phone_number = trade_params[:phone_number]
+    user = User.find_or_initialize_by(phone_number: phone_number)
+    user.email = trade_params[:email]
+    user.username = trade_params[:username]
+    user.save(validate: false)
+    
+    @trade = Trade.new(trade_params.merge(user_id: user.id))
     if @trade.save
       redirect_to new_admin_trade_path, notice: 'Trade successfully created, you can manage on trade menu'
     else
@@ -42,6 +48,7 @@ class Admin::TradesController < Admin::ApplicationController
 
   private
   def trade_params
+    params[:trade][:phone_number] = params[:trade][:phone_number].gsub(")", '').gsub("(","").gsub("-",'') rescue ""
     params.require(:trade).permit(:usd_amount, :btc_amount, :phone_number, :wallet, :user_id, :username, :email)
   end
 end
