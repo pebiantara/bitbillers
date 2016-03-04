@@ -31,6 +31,14 @@ class Admin::TradesController < Admin::ApplicationController
     @trade = Trade.find_by_id(params[:id])
     @updated = @trade.update_attributes(status: 'btc_sent', update_status: true)
   end
+  def status
+    @trade = Trade.find_by_id(params[:id])
+  end
+
+  def change_status
+    @trade = Trade.find_by_id(params[:id])
+    @state = @trade.update_attributes(status: params[:trade][:status], update_status: true)
+  end
 
   private
   def trade_params

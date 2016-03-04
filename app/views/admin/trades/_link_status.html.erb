@@ -1,0 +1,4 @@
+<%= link_to "javascript:void(0)", onclick: "openModalSmall('#{status_admin_trade_path(trade.id, popup: true)}')" do %>
+  <span class="<%= get_trade_status(trade.status) %>"><%= trade.status.humanize %></span>
+<% end %>
+	

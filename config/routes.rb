@@ -19,6 +19,8 @@ Rails.application.routes.draw do
       member do
         get :release
         patch :released
+        get :status
+        patch :change_status
       end
     end
     resources :dashboards, only: [:index]

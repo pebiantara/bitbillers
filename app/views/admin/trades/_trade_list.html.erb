@@ -13,7 +13,9 @@
   <td>
     <%= link_to "Check", "javascript:void(0)" %>
   </td>
-	<td><span class="<%= get_trade_status(trade.status) %>"><%= trade.status.humanize %></span></td>
+	<td id="trade-<%= trade.id %>-status">
+	  <%= render partial: 'link_status', locals: {trade: trade} %>
+	</td>
 	<%- if release %>
     <td>
       <%= link_to "release", "javascript:void(0)", onclick: "openModalSmall('#{release_admin_trade_path(trade, popup: true)}')" %>

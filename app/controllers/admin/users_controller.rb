@@ -74,8 +74,6 @@ class Admin::UsersController < Admin::ApplicationController
   def change_status
     @user = User.find_by_id(params[:id])
     @state = @user.update_attributes(status: params[:user][:status])
-    puts @state.inspect
-    puts "=" * 100
   end
 
   private
