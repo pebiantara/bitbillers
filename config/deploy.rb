@@ -5,6 +5,7 @@ lock '3.4.0'
 
 set :application, 'bitbillers'
 set :repo_url, 'git@github.com:pebiantara/bitbillers.git'
+# set :default_env, { path: "~/.rbenv/shims:~/.rbenv/bin:$PATH" }
 
 set :rails_env, "production"
 set :env, "production"
@@ -73,8 +74,8 @@ set(:symlinks, [
 namespace :deploy do
   task :setup_config do
     on roles(:app) do
-      execute :sudo, "ln -nfs #{current_path}/config/nginx.conf /etc/nginx/sites-enabled/landing_page"
-      execute :sudo, "ln -nfs #{current_path}/config/unicorn_init.sh /etc/init.d/unicorn_landing"
+      execute :sudo, "ln -nfs #{current_path}/config/nginx.conf /etc/nginx/sites-enabled/bitbillers"
+      execute :sudo, "ln -nfs #{current_path}/config/unicorn_init.sh /etc/init.d/unicorn_bitbillers"
     end
   end
 
@@ -92,8 +93,8 @@ namespace :deploy do
   end
 
   task :restart_unicorn do
-    execute :sudo, "/etc/init.d/unicorn_landing stop"
-    execute :sudo, "/etc/init.d/unicorn_landing start"
+    execute :sudo, "/etc/init.d/unicorn_bitbillers stop"
+    execute :sudo, "/etc/init.d/unicorn_bitbillers start"
   end
 end
 

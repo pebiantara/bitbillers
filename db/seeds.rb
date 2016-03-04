@@ -7,7 +7,8 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 if User.count.zero?
-  User.create email: 'admin@bitbillers.com', password: 'admin1234'
+  user = User.new email: 'admin@bitbillers.com', password: 'admin1234'
+  user.save(validate: false)
 end
 
 if Role.count.zero?
