@@ -6,7 +6,7 @@
 	<td><%= trade.wallet %></td>
 	<td><%= trade.usd_amount %></td>
 	<td><%= trade.btc_amount %></td>
-	<td><%= trade.location_to_pay.present? ? trade.location_to_pay : "store#1" %></td>
+	<td><%= trade.location_to_pay %></td>
 	<td>
 	  <span class="<%= get_trade_status(trade.status) %>"><%= trade.status.humanize %></span>
   </td>

@@ -27,6 +27,7 @@ class Trade < ActiveRecord::Base
 
   def checking_daily_deposit
     return if update_status
+    return if self.user.nil?
     daily = self.user.trades.today.sum(:usd_amount)
     if daily > AppConfiguration.current_config.maximum_daily_deposit
       self.errors.add(:daily_deposit, "Maximum daily deposit is $#{AppConfiguration.current_config.maximum_daily_deposit}")

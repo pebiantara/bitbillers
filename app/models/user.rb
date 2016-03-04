@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
   after_create :set_member, :generate_sms_code
  
   validates_presence_of :first_name, :last_name, :phone_number
-  # validates_uniqueness_of :phone_number
+  validates_uniqueness_of :phone_number
 
   accepts_nested_attributes_for :address
 
