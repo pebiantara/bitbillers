@@ -2,6 +2,8 @@ class Device::StoresController < ApplicationController
   before_action :define_store
 
   def show
+  	session[:user_buying] = nil
+    session[:trade_id] = nil
   end
 
   def buy
@@ -64,7 +66,7 @@ class Device::StoresController < ApplicationController
     @trade = Trade.find_by_id(session[:trade_id])
     @updated = @trade.update_attributes(status: 'withdraw_requested') if @trade
     if @updated
-    	session[:user_id] = nil
+    	session[:user_buying] = nil
     	session[:trade_id] = nil
       redirect_to device_store_path, notice: "Trading has been completed."
     end
