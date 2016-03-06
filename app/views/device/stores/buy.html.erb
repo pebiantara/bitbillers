@@ -1,0 +1,16 @@
+<div class="container">
+	<div class="col-md-3">
+		<%= image_tag('logo.png', class: 'img-resposive left-logo') %>
+	</div>
+	<div class="clearfix"></div>
+	<div class="box-device">
+		<div class="col-md-4 col-md-offset-2">
+			<h1 class='insert-cellphone'>Insert your cellphone</h1>
+		</div>
+		<div class="col-md-4 box-keypad">
+      <%= form_tag buying_device_store_path(@store) do %>
+        <%= render "button_form" %>
+      <% end %>
+		</div>
+	</div>
+</div>

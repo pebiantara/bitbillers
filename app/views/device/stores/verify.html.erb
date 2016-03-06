@@ -1,0 +1,20 @@
+<div class="container">
+	<div class="col-md-3">
+		<%= image_tag('logo.png', class: 'img-resposive left-logo') %>
+	</div>
+	<div class="clearfix"></div>
+	<div class="box-device">
+	  <h1 class="text-center">Request Customer ID<br/>verify if is:</h1>
+	  <div class="info-name text-center"><%= @user.email %></div>
+	  <div class="clearfix"></div>
+	  <%= form_tag verifying_device_store_path(@store) do %>
+	    <%= render "shared/messages" %>
+		  <div class="col-md-4 col-md-offset-2 box-button">
+	      <%= button_tag "No, Cancel", class: "btn btn-default btn-cancel radius", onclick: "window.location='/device/stores/#{@store.friendly_id}'" %>
+		  </div>
+		  <div class="col-md-4 box-button">
+	      <%= button_tag "Yes, It is", class: "btn btn-primary radius", onclick: "$(this).parents('form').submit();" %>
+		  </div>
+	  <% end %>
+	</div>
+</div>

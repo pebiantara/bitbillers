@@ -13,6 +13,7 @@ class Trade < ActiveRecord::Base
   scope :withdraw_requested, -> {where(status: 'withdraw_requested')}
   scope :btc_sent, -> {where(status: 'btc_sent')}
   scope :buying_btc, -> {where(status: 'buying_btc')}
+  scope :open_or_buying, -> {where("status = ? OR status = ?", 'trade_open', 'buying_btc')}
 
   attr_accessor :update_status
 

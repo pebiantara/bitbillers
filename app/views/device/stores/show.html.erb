@@ -1,0 +1,8 @@
+<div class="container">
+  <div class="box-device text-center">
+    <%= image_tag('logo.png', class: 'logo') %>
+    <h1>Welcome to BitBillers Kiosk</h1>
+    <%= render "shared/messages" %>
+    <%= button_tag "BUY BITCOIN", class: 'btn btn-primary radius btn-lg buy-btn', onclick: "window.location='/device/stores/#{@store.friendly_id}/buy'" %>
+  </div>
+</div>

@@ -36,11 +36,17 @@ Rails.application.routes.draw do
   end
 
   namespace :device do
-    root "home#index"
-    get "buy" => "home#buy", as: :buy
-    get "bitbil" => "home#bitbil", as: :bitbil
-    get "store" => "home#store", as: :store
-    get "charge" => "home#charge", as: :charge
-    get "verify" => "home#verify", as: :verify
+    resources :stores, only: [:show] do
+      member do
+        get :buy
+        post :buying
+        get :store
+        post :storing
+        get :verify
+        post :verifying
+        get :charge
+        post :charging
+      end
+    end
   end
 end

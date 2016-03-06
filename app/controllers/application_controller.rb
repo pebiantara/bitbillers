@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource_or_scope)
-    set_login_history
+    set_login_history(current_user)
     if current_user.is_admin?
       admin_root_path
     else
@@ -25,10 +25,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def set_login_history
+  def set_login_history(user=nil)
     ip_addr = Rails.env.eql?('development') ? '104.236.38.53' : request.remote_ip
     location = IpLocation.lookup(ip_addr)
-    if current_user
+    if user
       history = current_user.login_histories.build(ip_address: ip_addr, ip_location: location.to_json, user_agent: request.env['HTTP_USER_AGENT'])
       history.save
     end
