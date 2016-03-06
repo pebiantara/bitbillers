@@ -16,7 +16,7 @@ class Device::StoresController < ApplicationController
 			session[:user_buying] = user.id
 			trade = user.trades.open_or_buying.first
 			if trade
-				trade.update_attributes status: 'buying_btc'
+				trade.update_attributes status: 'buying_btc', location_to_pay: @store.name
 				session[:trade_id] = trade.id
 				redirect_to store_device_store_path(@store)
 			else
