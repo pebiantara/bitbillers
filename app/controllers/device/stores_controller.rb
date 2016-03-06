@@ -31,7 +31,9 @@ class Device::StoresController < ApplicationController
 	end
 
 	def store
-
+    if session[:user_buying].nil?
+      redirect_to buy_device_store_path and return
+    end
 	end
 
 	def storing
