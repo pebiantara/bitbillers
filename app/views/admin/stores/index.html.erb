@@ -1,0 +1,30 @@
+<h1>Store</h1>
+<%= link_to "javascript:void(0)", class: 'btn btn-primary', onclick: "openModalSmall('#{new_admin_store_path(popup: true)}')" do %>
+  <i class="fa fa-plus"></i> Add new Store
+<% end %>
+<hr/>
+<div class="table-responsive">
+	<table class='table' id='store-table'>
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Address</th>
+				<th>Phone Number</th>
+				<th>URL</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<%- @stores.each do |store| %>
+        <tr id="store-<%= store.id %>">
+          <%= render partial: "row", locals: {store: store} %>
+        </tr>
+			<% end %>
+			<tr>
+        <td colspan="16">
+          <%= paginate @stores %>
+        </td>
+			</tr>
+		</tbody>
+	</table>
+</div>

@@ -77,6 +77,8 @@ GEM
     execjs (2.6.0)
     font-awesome-sass (4.5.0)
       sass (>= 3.2)
+    friendly_id (5.1.0)
+      activerecord (>= 4.0.0)
     geoip (1.6.1)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
@@ -195,6 +197,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   devise
   font-awesome-sass (~> 4.5.0)
+  friendly_id (~> 5.1.0)
   geoip
   jbuilder (~> 2.0)
   jquery-rails

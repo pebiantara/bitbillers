@@ -32,6 +32,7 @@ Rails.application.routes.draw do
         get :login_histories
       end
     end
+    resources :stores
   end
 
   namespace :device do

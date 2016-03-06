@@ -1,0 +1,3 @@
+html = '<%= escape_javascript(render "form") %>';
+$("#window-modal-small .modal-content .form-store").html(html);
+$("#store-<%= @store.id %>").html("<%= escape_javascript(render partial: 'row', locals: {store: @store}) %>");

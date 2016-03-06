@@ -1,0 +1,7 @@
+<%- if @created %>
+  $("#store-table tbody").prepend("<tr id='store-<%=@store.id%>'><%= escape_javascript(render partial: 'row', locals: {store: @store}) %></tr>");
+  $("#window-modal-small").modal('hide');
+<% else %>
+	html = '<%= escape_javascript(render "form") %>';
+	$("#window-modal-small .modal-content .form-store").html(html);
+<% end %>

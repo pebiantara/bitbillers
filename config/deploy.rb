@@ -80,22 +80,33 @@ namespace :deploy do
   end
 
   task :migrate do
-    execute :cd, "#{current_path} && rake db:migrate RAILS_ENV=production "
-    execute :cd, "#{current_path} && rake db:seed RAILS_ENV=production "
+    on roles(:app) do
+      execute "cd #{current_path} && rake db:migrate RAILS_ENV=production "
+      execute "cd #{current_path} && rake db:seed RAILS_ENV=production "
+    end
   end
 
   task :precompile do
-    execute :cd, "#{current_path} && rake assets:precompile RAILS_ENV=production"
+    on roles(:app) do
+      execute "cd #{current_path} && rake assets:precompile RAILS_ENV=production"
+    end
   end
 
   task :bundling do
-    execute :sudo, "cd #{current_path} && bundle install"
+    on roles(:app) do
+      execute "cd #{current_path}; bundle install --deployment"
+    end
   end
 
   task :restart_unicorn do
-    execute :sudo, "/etc/init.d/unicorn_bitbillers stop"
-    execute :sudo, "/etc/init.d/unicorn_bitbillers start"
+    on roles(:app) do
+      execute "/etc/init.d/unicorn_bitbillers stop"
+      execute "/etc/init.d/unicorn_bitbillers start"
+    end
   end
+  # after :publishing, :bundling
+  # after :publishing, :precompile
+  # after :publishing, :restart_unicorn
 end
 
 # FIXED ME LATER

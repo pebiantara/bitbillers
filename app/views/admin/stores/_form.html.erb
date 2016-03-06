@@ -1,0 +1,28 @@
+<%= form_for @store, url: @store.new_record? ? admin_stores_path : admin_store_path, remote: true, method: @store.new_record? ? :post : :patch do |f| %>
+  <%= render 'shared/messages' %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>
+    <small class="label label-danger"><%= @store.errors[:name].join(", ") %></small>
+  </div>
+  <div class="form-group">
+    <%= f.label :password %>
+    <%= f.password_field :password, class: 'form-control' %>
+    <small>Only numeric format allowed.</small>
+    <%- unless f.object.new_record? %>
+      <small>Leave it blank if you dont want to change store password</small>
+    <% end %>
+    <small class="label label-danger"><%= @store.errors[:password].join(", ") %></small>
+  </div>
+  <div class="form-group">
+    <%= f.label :address %>
+    <%= f.text_field :address, class: 'form-control' %>
+    <small class="label label-danger"><%= @store.errors[:address].join(", ") %></small>
+  </div>
+  <div class="form-group">
+    <%= f.label :phone_number %>
+    <%= f.text_field :phone_number, class: 'form-control' %>
+    <small class="label label-danger"><%= @store.errors[:phone_number].join(", ") %></small>
+  </div>
+  <%= f.submit "Save", class: 'btn btn-primary', data: {disable_with: 'saving...'} %>
+<% end %> 

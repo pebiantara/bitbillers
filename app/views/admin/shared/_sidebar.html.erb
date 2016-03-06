@@ -19,6 +19,11 @@
 		<span>Users List</span>
 		<% end %>
 	</li>
+	<li class="<%= 'active' if params[:controller] == 'admin/stores'%>">
+		<%= link_to admin_stores_path, method: :get do %>
+		<span>Stores</span>
+		<% end %>
+	</li>
 	<li class="<%= 'active' if params[:controller] == 'admin/configurations'%>">
 		<%= link_to admin_settings_path, method: :get do %>
 		<span>Manage System</span>

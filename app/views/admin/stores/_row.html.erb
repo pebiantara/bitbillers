@@ -1,0 +1,14 @@
+	<td>
+		<%= store.name %>
+	</td>
+	<td><%= store.address %></td>
+	<td><%= store.phone_number %></td>
+	<td><%= link_to store.url, store.url, target: 'blank' %></td>
+	<td>
+		<%= link_to "javascript:void(0)", onclick: "openModalSmall('#{edit_admin_store_path(store, popup: true)}')" do %>
+		<i class="fa fa-pencil"></i>
+		<% end %>
+		<%= link_to admin_store_path(store), data: {confirm: 'are you sure?'}, method: :delete do %>
+		<i class="fa fa-trash"></i>
+		<% end %>
+	</td>
