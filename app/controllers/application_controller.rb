@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
     ip_addr = Rails.env.eql?('development') ? '104.236.38.53' : request.remote_ip
     location = IpLocation.lookup(ip_addr)
     if user
-      history = current_user.login_histories.build(ip_address: ip_addr, ip_location: location.to_json, user_agent: request.env['HTTP_USER_AGENT'])
+      history = user.login_histories.build(ip_address: ip_addr, ip_location: location.to_json, user_agent: request.env['HTTP_USER_AGENT'])
       history.save
     end
   end
