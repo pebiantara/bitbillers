@@ -11,6 +11,26 @@ $(document).on('ready page:load', function(){
   });
 
   setupTrading();
+  setInterval(function(){
+    $.ajax({
+      url: "/markets",
+      dataType: "json",
+      success: function(data){
+        $.each(data, function(i, val){
+          if(i == "updated_at")
+            $("."+i).html(val);
+          else
+            $("."+i).html("$" + val);
+        })
+
+        $("#price").data('price', data.price).html("$"+data.price+"/1BTC");
+        price = $("#price").data("price");
+        $("#trade_btc_amount").val($("#trade_usd_amount").val() / price);
+      }
+    })
+  }, 2000);
+
+
 });
 
 copyClipboard = function(){
@@ -34,7 +54,6 @@ setupTrading = function(){
 
   $("#trade_btc_amount").keyup(function(){
     btc = $(this).val();
-    console.log(price);
     $("#trade_usd_amount").val(btc * price);
   })
 }

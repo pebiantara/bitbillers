@@ -4,7 +4,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   layout :selected_layout
-  helper_method :set_login_history
+  helper_method :set_login_history, :prices_json
+  before_action :market_price
 
   def selected_layout
     if params[:controller].include?('admin') 
@@ -32,5 +33,15 @@ class ApplicationController < ActionController::Base
       history = user.login_histories.build(ip_address: ip_addr, ip_location: location.to_json, user_agent: request.env['HTTP_USER_AGENT'])
       history.save
     end
+  end
+
+  def market_price
+    m = Market.new
+    prices = m.markets
+    BitCoinPrice.current_price.update_attributes(prices)
+  end
+
+  def prices_json
+    BitCoinPrice.prices_json
   end
 end

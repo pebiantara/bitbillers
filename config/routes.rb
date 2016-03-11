@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   root "home#index"
 
+  get "markets" => "markets#index", as: :markets
+
   namespace :admin do
     root "trades#new"
     get 'settings' => 'configurations#edit', as: :settings

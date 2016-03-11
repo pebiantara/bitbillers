@@ -1,5 +1,33 @@
+<h2>Market Prices</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <td>Bitfinex</td>
+      <td>OkCoin</td>
+      <td>Bitstamp</td>
+      <td>CoinBase</td>
+      <td>itBit</td>
+      <td>Highest Price</td>
+      <td>Include fee <%= AppConfiguration.current_config.fee_percent.to_f.scale_2 %>%</td>
+      <td>Updated At</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="bitfinex">$<%= prices_json[:bitfinex] %></td>
+      <td class="okcoin">$<%= prices_json[:okcoin] %></td>
+      <td class="bitstamp">$<%= prices_json[:bitstamp] %></td>
+      <td class="coinbase">$<%= prices_json[:coinbase] %></td>
+      <td class="itbit">$<%= prices_json[:itbit] %></td>
+      <td class="maxprice">$<%= prices_json[:maxprice] %></td>
+      <td class="price">$<%= prices_json[:price] %></td>
+      <td class="updated_at"><%= prices_json[:updated_at] %></td>
+    </tr>
+  </tbody>
+</table>
+<hr/>
 <h1>New Trade</h1>
-<h2>Price: <span id="price" data-price="<%= @bitcoin_price %>">$<%= @bitcoin_price %>/1BTC</span></h2>
+<h2>Price: <span id="price" data-price="<%= prices_json[:price] %>">$<%= prices_json[:price] %>/1BTC</span></h2>
 <div class="col-md-8 no-padding">
 	<%= form_for @trade, url: admin_trades_path, html: {novalidate: 'novalidate'} do |f| %>
 	<% if @trade.errors.any? %>
