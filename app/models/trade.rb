@@ -1,7 +1,7 @@
 class Trade < ActiveRecord::Base
   belongs_to :user
 
-  validates_presence_of :user_id, :usd_amount, :btc_amount, :phone_number, :wallet
+  validates_presence_of :user_id, :usd_amount, :btc_amount, :phone_number, :wallet, :exchange_rate
   validates_numericality_of :usd_amount, :btc_amount
   
   validate :checking_minimum_and_maximum

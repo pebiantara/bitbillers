@@ -26,11 +26,10 @@ $(document).on('ready page:load', function(){
         $("#price").data('price', data.price).html("$"+data.price+"/1BTC");
         price = $("#price").data("price");
         $("#trade_btc_amount").val($("#trade_usd_amount").val() / price);
+        $("#trade_exchange_rate").val(data.price);
       }
     })
   }, 2000);
-
-
 });
 
 copyClipboard = function(){

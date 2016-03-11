@@ -55,6 +55,6 @@ class Admin::TradesController < Admin::ApplicationController
   private
   def trade_params
     params[:trade][:phone_number] = params[:trade][:phone_number].gsub(")", '').gsub("(","").gsub("-",'') rescue ""
-    params.require(:trade).permit(:usd_amount, :btc_amount, :phone_number, :wallet, :user_id, :username, :email)
+    params.require(:trade).permit(:usd_amount, :btc_amount, :phone_number, :wallet, :user_id, :username, :email, :exchange_rate)
   end
 end
