@@ -51,6 +51,9 @@ gem 'devise'
 gem 'httparty'
 gem 'hashie'
 
+#cron job
+gem 'whenever', :require => false
+
 #okcoin
 gem 'okcoin-ruby'
 gem 'celluloid-websocket-client',  :github => 'ilyacherevkov/celluloid-websocket-client'

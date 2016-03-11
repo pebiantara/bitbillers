@@ -46,4 +46,8 @@ class Trade < ActiveRecord::Base
     	buying_btc: "Buying BTC"
     }
   end
+
+  def self.checking_trade
+    Trade.trade_open.where("created_at <= ?", Time.zone.now).update_all(status: 'trade_expired')
+  end
 end
