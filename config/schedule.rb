@@ -19,5 +19,5 @@
 
 set :output, "#{path}/log/cron_log.log"
 every 1.day, :at => '00:01 am' do
-  runner "Trade.checking_status"
+  runner "Trade.checking_trade"
 end
