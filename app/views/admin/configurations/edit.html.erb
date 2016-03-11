@@ -47,6 +47,18 @@
         <%= f.text_field :bitfinex_api_secret, class: 'form-control input-lg' %>
       </div>
     </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= f.label :okcoin_api_key %>
+        <%= f.text_field :okcoin_api_key, class: 'form-control input-lg' %>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= f.label :okcoin_api_secret %>
+        <%= f.text_field :okcoin_api_secret, class: 'form-control input-lg' %>
+      </div>
+    </div>
   </div>
   <div class="col-md-6">
     <%= f.submit :save, class: 'btn btn-primary btn-lg' %>
