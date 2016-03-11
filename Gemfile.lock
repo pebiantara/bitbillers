@@ -93,6 +93,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.10.0)
+    coinbase (4.1.0)
     concurrent-ruby (1.0.1)
     curb (0.8.7)
     debug_inspector (0.0.2)
@@ -241,6 +242,7 @@ DEPENDENCIES
   capistrano-rails
   celluloid-websocket-client!
   coffee-rails (~> 4.1.0)
+  coinbase
   devise
   font-awesome-sass (~> 4.5.0)
   friendly_id (~> 5.1.0)

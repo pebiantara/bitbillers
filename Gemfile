@@ -55,6 +55,9 @@ gem 'hashie'
 gem 'okcoin-ruby'
 gem 'celluloid-websocket-client',  :github => 'ilyacherevkov/celluloid-websocket-client'
 
+#coinbase
+gem 'coinbase'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

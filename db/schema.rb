@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160311090834) do
+ActiveRecord::Schema.define(version: 20160311104037) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,8 @@ ActiveRecord::Schema.define(version: 20160311090834) do
     t.string   "bitfinex_api_secret"
     t.string   "okcoin_api_key"
     t.string   "okcoin_api_secret"
+    t.string   "coinbase_api_key"
+    t.string   "coinbase_api_secret"
   end
 
   create_table "bit_coin_prices", force: :cascade do |t|
