@@ -29,7 +29,7 @@ $(document).on('ready page:load', function(){
         $("#trade_exchange_rate").val(data.price);
       }
     })
-  }, 2000);
+  }, 15000);
 });
 
 copyClipboard = function(){

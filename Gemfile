@@ -26,6 +26,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'font-awesome-sass', '~> 4.5.0'
 
+#send message
+gem 'twilio-ruby', '~> 4.11.1'
+
 gem 'unicorn'
 
 gem 'kaminari'
